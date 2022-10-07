@@ -1,10 +1,17 @@
 import React from 'react';
-import ProductForm from './components/ProductForm';
+import HomePage from './pages/HomePage';
+import OneProduct from './pages/OneProduct';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
-function App() {
+const App =()=> {
   return (
     <div className="App">
-      < ProductForm />
+      <BrowserRouter>
+        <Routes>
+          <Route element={<HomePage/>} path="/"/>
+          <Route element={<OneProduct />} path="/product/:id" />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
