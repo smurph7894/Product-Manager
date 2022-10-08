@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from 'axios';
-import {useParams} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
+import DeleteButton from "../components/DeleteButton";
 
 const OneProduct = ()=> {
     const {id} = useParams();
@@ -23,6 +24,10 @@ const OneProduct = ()=> {
             <p style={{fontSize:"50px"}}>{product.title}</p>
             <p>{product.price}</p>
             <p>{product.description}</p>
+            <Link to={`/product/edit/${product._id}`}>Edit</Link>
+            <DeleteButton 
+            id={product._id}
+            />
         </div>
     )
 }
